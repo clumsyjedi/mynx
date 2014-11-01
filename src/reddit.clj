@@ -219,6 +219,13 @@ defn vote
                  :dir (direction
                         {:up 1, :none 0, :down -1})})
 
+defn delete
+  "Delete a link/comment"
+  [item & [login]]
+  (post (reddit api del)
+        :login login
+        :params {:id (item :name)})
+
 ;; -----
 ;; Users
 ;; -----
